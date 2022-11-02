@@ -1,5 +1,8 @@
 package hr.java.vjezbe.entitet;
 
+/**
+ * Apstraktna klasa sa varijablama ime i prezime. Nasljeđuju ju je klase Student i Profesor.
+ */
 public abstract class Osoba {
 
     private String ime;

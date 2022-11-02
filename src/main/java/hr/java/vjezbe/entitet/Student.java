@@ -8,6 +8,9 @@ import java.time.temporal.Temporal;
 import java.time.temporal.TemporalField;
 import java.time.temporal.TemporalUnit;
 
+/**
+ * Klasa Student predstavlja studenta u obrazovnoj ustanovi sa svojim imenom, prezimenom, JMBAG-om kao jedinstvenom oznakom te datumom rođenja.
+ */
 public class Student extends Osoba {
 
     private String ime, prezime, jmbag;

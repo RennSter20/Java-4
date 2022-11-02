@@ -2,6 +2,9 @@ package hr.java.vjezbe.entitet;
 
 import java.util.List;
 
+/**
+ * Abstraktna klasa koja sadrži naziv ustanove, sve predmete, profesore, studente i ispite koji su se pisali.
+ */
 public abstract class ObrazovnaUstanova {
 
     private String naziv;

@@ -8,6 +8,11 @@ import org.slf4j.LoggerFactory;
 import java.math.BigDecimal;
 import java.util.List;
 
+/**
+ *  * Klasa VeleucilisteJave nasljeđuje ObrazovnaUstanova i implementira sučelje Visokoskolska.
+ *  * Unutar klase implementirane su metode koje se koriste tijekom izvođenja programa u svrhu
+ *  * određivanja konačnih ocjena i najuspješnijeg studenta.
+ */
 public class VeleucilisteJave extends ObrazovnaUstanova implements Visokoskolska{
 
     public static final Logger logger = LoggerFactory.getLogger(Glavna.class);
@@ -16,7 +21,16 @@ public class VeleucilisteJave extends ObrazovnaUstanova implements Visokoskolska
         super(naziv, predmeti, profesori, studenti, ispiti);
     }
 
-    //DONE
+
+    /**
+     * Metoda određuje konačnu ocjenu za studenta prema filtriranim ispitima po studentu, ocjeni iz pismenog dijela te obrani rada. Konačna ocjena se izračunava
+     * uz formulu: konačna ocjena = (2 * prosjek ocjena studenta + ocjena završnog rada + ocjena obrane završnog rada) / 4.
+     * @param ispiti
+     * @param pismeni
+     * @param obrana
+     * @param student
+     * @return
+     */
     @Override
     public BigDecimal izracunajKonacnuOcjenuStudijaZaStudenta(List<Ispit> ispiti, Integer pismeni, Integer obrana, Student student) {
 
@@ -35,7 +49,6 @@ public class VeleucilisteJave extends ObrazovnaUstanova implements Visokoskolska
            return (prosjekOcjenaNaIspitima.multiply(BigDecimal.valueOf(2)).add(BigDecimal.valueOf(obrana).add(BigDecimal.valueOf(pismeni)))).divide(BigDecimal.valueOf(4));
     }
 
-    //DONE
     @Override
     public Student odrediNajuspjesnijegStudentaNaGodini(Integer godina) {
 

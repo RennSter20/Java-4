@@ -3,6 +3,10 @@ package hr.java.vjezbe.entitet;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
+/**
+ * Klasa koja sadrži podatke o ispitu, studenta koji je pisao ispit, predmet ispita, ocjenu, datum i dvoranu u kojoj se ispit pisao.
+ * Također sadrži implementiranu metodu unosSoftwarea u kojoj se unosi software koji se koristio na ispitu.
+ */
 public final class Ispit implements Online {
 
     private Predmet predmet;

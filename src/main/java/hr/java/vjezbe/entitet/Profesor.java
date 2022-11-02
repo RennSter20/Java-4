@@ -1,5 +1,8 @@
 package hr.java.vjezbe.entitet;
 
+/**
+ * Klasa profesor predstavlja profesora u obrazovnoj ustanovi sa svojom sifrom, imenom, prezimenom i stečenom titulom.
+ */
 public class Profesor extends Osoba {
 
     private String sifra, ime, prezime, titula;
