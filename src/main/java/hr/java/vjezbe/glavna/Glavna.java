@@ -61,13 +61,12 @@ public class Glavna {
 
         return new Profesor.Builder().withIme(tempIme).withPrezime(tempPrezime).withSifra(tempSifra).withTitula(tempTitula).build();
     }
-    static List<Predmet> unosPredmet(Scanner unos, List<Profesor> profesori, List<Student> studenti){
+    static List<Predmet> unosPredmet(Scanner unos, List<Profesor> profesori){
 
         List<String> tempSifra = new ArrayList<>();
         List<String> tempNaziv = new ArrayList<>();
         List<Integer> tempECTS = new ArrayList<>();
         List<Integer> tempOdabirProfesora = new ArrayList();
-        List<Integer> tempBrojStudenata = new ArrayList<>();
 
         boolean nastaviPetlju = false;
 
@@ -128,35 +127,13 @@ public class Glavna {
             }while(nastaviPetlju);
 
 
-            nastaviPetlju = false;
-            do{
-                try{
-                    System.out.print("Unesite broj studenata za predmet '" + tempNaziv.get(i) + "': ");
-                    tempBrojStudenata.add(i, unos.nextInt());
-                    if(tempBrojStudenata.get(i) < 1){
-                        System.out.println("Unesen je broj manji od 1");
-                        nastaviPetlju = true;
-                    }else{
-                        nastaviPetlju = false;
-                    }
-                    unos.nextLine();
-                }catch (InputMismatchException e){
-                    System.out.println("Neispravan unos!");
-                    logger.error(String.valueOf(e), e.fillInStackTrace());
-                    nastaviPetlju = true;
-                    unos.nextLine();
-                }
-            }while(nastaviPetlju);
-        }
 
-        for(int i = 0;i<BROJ_STUDENTA;i++){
-            studenti.add(i, unosStudent(unos, i));
         }
 
         List<Predmet> predmeti = new ArrayList<>();
 
         for(int i = 0;i<BROJ_PREDMETA;i++){
-            predmeti.add(i, new Predmet(tempSifra.get(i), tempNaziv.get(i), tempECTS.get(i), profesori.get(tempOdabirProfesora.get(i) - 1), studenti));
+            predmeti.add(i, new Predmet.PredmetBuilder().setSifra(tempSifra.get(i)).setNaziv(tempNaziv.get(i)).setBrojEctsBodova(tempECTS.get(i)).setNositelj(profesori.get(tempOdabirProfesora.get(i) - 1)).setStudenti(new ArrayList<>()).createPredmet());
         }
 
         return predmeti;
@@ -253,6 +230,9 @@ public class Glavna {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy.'T'HH:mm");
         LocalDateTime tempDatum = LocalDate.parse(unos.nextLine(), dateFormat).atStartOfDay();
 
+        predmeti.get(tempOdabirPredmet - 1).getStudenti().add(studenti.get(tempOdabirStudenta - 1));
+
+
         return new Ispit(predmeti.get(tempOdabirPredmet - 1), studenti.get(tempOdabirStudenta - 1), tempOcjena, tempDatum, new Dvorana(tempDvorana, tempZgrada));
     }
 
@@ -268,7 +248,11 @@ public class Glavna {
             profesori.add(i, unosProfesor(unos, i));
         }
 
-        predmeti = unosPredmet(unos, profesori, studenti);
+        predmeti = unosPredmet(unos, profesori);
+
+        for(int i = 0;i<BROJ_STUDENTA;i++){
+            studenti.add(i, unosStudent(unos, i));
+        }
 
         for(int i = 0;i<BROJ_ISPITA;i++){
             ispiti.add(i, unosIspit(unos, i, predmeti, studenti));

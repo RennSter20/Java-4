@@ -37,3 +37,12 @@ java.util.InputMismatchException: null
 2022-11-02 14:20:01,661 ERROR [main] h.j.v.g.Glavna [Glavna.java:412] java.util.InputMismatchException
 java.util.InputMismatchException: null
 	at hr.java.vjezbe.glavna.Glavna.main(Glavna.java:412)
+2022-11-02 14:54:57,925 ERROR [main] h.j.v.g.Glavna [Glavna.java:414] java.util.InputMismatchException
+java.util.InputMismatchException: null
+	at hr.java.vjezbe.glavna.Glavna.main(Glavna.java:414)
+2022-11-02 14:55:00,896 ERROR [main] h.j.v.g.Glavna [Glavna.java:414] java.util.InputMismatchException
+java.util.InputMismatchException: null
+	at hr.java.vjezbe.glavna.Glavna.main(Glavna.java:414)
+2022-11-02 14:55:02,023 ERROR [main] h.j.v.g.Glavna [Glavna.java:414] java.util.InputMismatchException
+java.util.InputMismatchException: null
+	at hr.java.vjezbe.glavna.Glavna.main(Glavna.java:414)

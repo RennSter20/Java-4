@@ -46,5 +46,25 @@ public class Student extends Osoba {
         this.datumRodjenja = datumRodjenja;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
+        Student student = (Student) o;
+
+        if (!ime.equals(student.ime)) return false;
+        if (!prezime.equals(student.prezime)) return false;
+        if (!jmbag.equals(student.jmbag)) return false;
+        return datumRodjenja.equals(student.datumRodjenja);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = ime.hashCode();
+        result = 31 * result + prezime.hashCode();
+        result = 31 * result + jmbag.hashCode();
+        result = 31 * result + datumRodjenja.hashCode();
+        return result;
+    }
 }

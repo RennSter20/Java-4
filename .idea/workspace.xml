@@ -110,4 +110,11 @@
     <MESSAGE value="Final commit" />
     <option name="LAST_COMMIT_MESSAGE" value="Final commit" />
   </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="hr.java.vjezbe.entitet.Predmet" memberName="brojEctsBodova" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
 </project>

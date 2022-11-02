@@ -17,6 +17,44 @@ public class Predmet {
         this.studenti = studenti;
     }
 
+    public static class PredmetBuilder {
+        private String sifra;
+        private String naziv;
+        private Integer brojEctsBodova;
+        private Profesor nositelj;
+        private List<Student> studenti;
+
+        public PredmetBuilder setSifra(String sifra) {
+            this.sifra = sifra;
+            return this;
+        }
+
+        public PredmetBuilder setNaziv(String naziv) {
+            this.naziv = naziv;
+            return this;
+        }
+
+        public PredmetBuilder setBrojEctsBodova(Integer brojEctsBodova) {
+            this.brojEctsBodova = brojEctsBodova;
+            return this;
+        }
+
+        public PredmetBuilder setNositelj(Profesor nositelj) {
+            this.nositelj = nositelj;
+            return this;
+        }
+
+        public PredmetBuilder setStudenti(List<Student> studenti) {
+            this.studenti = studenti;
+            return this;
+        }
+
+        public Predmet createPredmet() {
+            return new Predmet(sifra, naziv, brojEctsBodova, nositelj, studenti);
+        }
+    }
+
+
     public String getSifra() {
         return sifra;
     }
