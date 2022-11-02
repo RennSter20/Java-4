@@ -4,12 +4,10 @@ import hr.java.vjezbe.iznimke.NemoguceOdreditiProsjekStudentaException;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public interface Visokoskolska {
 
-    //KORISTI FILTRIRAJ ISPITE PO STUDENTU
     BigDecimal izracunajKonacnuOcjenuStudijaZaStudenta (List<Ispit> ispiti, Integer pismeni, Integer obrana, Student student);
 
     //DONE
@@ -21,7 +19,6 @@ public interface Visokoskolska {
         for(int i = 0;i< ispiti.size();i++){
             if(ispiti.get(i).getOcjena() > 1){
                 broj++;
-                //tempIspiti = Arrays.copyOf(tempIspiti, broj);
                 tempIspiti.add(broj - 1, ispiti.get(i));
             }
         }
@@ -56,7 +53,6 @@ public interface Visokoskolska {
         for(int i = 0;i<ispiti.size();i++){
             if(ispiti.get(i).getStudent() == student){
                 brojIspita++;
-                //tempIspiti = Arrays.copyOf(tempIspiti, brojIspita);
                 tempIspiti.add(brojIspita - 1, ispiti.get(i));
             }
         }

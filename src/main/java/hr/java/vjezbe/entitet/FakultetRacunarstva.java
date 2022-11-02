@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski {
@@ -103,7 +102,6 @@ public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski 
         for(int i = 0;i<getStudenti().size();i++){
             if(prosjeci.get(i).equals(prosjeci.get(najbolji)) && getStudenti().get(i).getDatumRodjenja().isEqual(getStudenti().get(i).getDatumRodjenja())){
                 brojIstihStudenata++;
-                //studentiIstogProsjekaIRodjendana = Arrays.copyOf(studentiIstogProsjekaIRodjendana, brojIstihStudenata);
                 studentiIstogProsjekaIRodjendana.add(brojIstihStudenata - 1, getStudenti().get(i));
             }
         }

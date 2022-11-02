@@ -20,7 +20,6 @@ public class VeleucilisteJave extends ObrazovnaUstanova implements Visokoskolska
     @Override
     public BigDecimal izracunajKonacnuOcjenuStudijaZaStudenta(List<Ispit> ispiti, Integer pismeni, Integer obrana, Student student) {
 
-            List<Ispit> ispitiStudenta = filtrirajIspitePoStudentu(ispiti, student);
 
             BigDecimal prosjekOcjenaNaIspitima = null;
 
