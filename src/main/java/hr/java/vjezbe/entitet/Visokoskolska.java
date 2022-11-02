@@ -9,8 +9,7 @@ import java.util.List;
 public interface Visokoskolska {
 
     BigDecimal izracunajKonacnuOcjenuStudijaZaStudenta (List<Ispit> ispiti, Integer pismeni, Integer obrana, Student student);
-
-    //DONE
+    
     private List<Ispit> filtrirajPolozeneIspite(List<Ispit> ispiti){
 
         Integer broj = 0;
@@ -31,8 +30,9 @@ public interface Visokoskolska {
         Integer suma = 0;
         Integer broj = 0;
 
+        Ocjena o = Ocjena.NEDOVOLJAN;
             for(int i = 0;i<ispiti.size();i++){
-                if(ispiti.get(i).getOcjena() > 1){
+                if(ispiti.get(i).getOcjena() > o.ocjena){
                     suma+= ispiti.get(i).getOcjena();
                     broj++;
                 }else{

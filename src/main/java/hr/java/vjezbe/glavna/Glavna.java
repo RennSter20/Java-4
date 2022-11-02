@@ -15,7 +15,7 @@ import java.util.*;
 public class Glavna {
 
     public static final int BROJ_PROFESORA = 2;
-    public static final int BROJ_PREDMETA = 2;
+    public static final int BROJ_PREDMETA = 3;
     public static final int BROJ_STUDENTA = 2;
     public static final int BROJ_ISPITA = 2;
 
@@ -59,7 +59,7 @@ public class Glavna {
 
         return new Profesor.Builder().withIme(tempIme).withPrezime(tempPrezime).withSifra(tempSifra).withTitula(tempTitula).build();
     }
-    static List<Predmet> unosPredmet(Scanner unos, List<Profesor> profesori){
+    static List<Predmet> unosPredmet(Scanner unos, List<Profesor> profesori, Map<Profesor, List<Predmet>> mapa){
 
         List<String> tempSifra = new ArrayList<>();
         List<String> tempNaziv = new ArrayList<>();
@@ -134,9 +134,24 @@ public class Glavna {
             predmeti.add(i, new Predmet.PredmetBuilder().setSifra(tempSifra.get(i)).setNaziv(tempNaziv.get(i)).setBrojEctsBodova(tempECTS.get(i)).setNositelj(profesori.get(tempOdabirProfesora.get(i) - 1)).setStudenti(new ArrayList<>()).createPredmet());
         }
 
+        for(Profesor profesor : profesori){
+            mapa.put(profesor, new ArrayList<>());
+        }
+
+        for(Predmet predmet : predmeti){
+
+            Profesor tempProfesor = predmet.getNositelj();
+
+            List<Predmet> tempPredmeti;
+            tempPredmeti = mapa.get(tempProfesor);
+            tempPredmeti.add(predmet);
+
+            mapa.put(tempProfesor, tempPredmeti);
+
+        }
+
         return predmeti;
     }
-
     static Ispit unosIspit(Scanner unos, Integer redniBroj, List<Predmet> predmeti, List<Student> studenti){
 
         System.out.println("Unesite " + (redniBroj+1) + ". ispitni rok: ");
@@ -202,6 +217,7 @@ public class Glavna {
             }
         }while(nastaviPetlju);
 
+        //OCJENA
         Integer tempOcjena = null;
         nastaviPetlju = false;
         do{
@@ -250,7 +266,7 @@ public class Glavna {
         }
 
     }
-    static ObrazovnaUstanova unosUstanove(Scanner unos){
+    static ObrazovnaUstanova unosUstanove(Scanner unos, Map<Profesor, List<Predmet>> mapa){
 
         List<Profesor> profesori = new ArrayList<>();
         List<Predmet> predmeti = new ArrayList<>();
@@ -262,7 +278,16 @@ public class Glavna {
             profesori.add(i, unosProfesor(unos, i));
         }
 
-        predmeti = unosPredmet(unos, profesori);
+        predmeti = unosPredmet(unos, profesori, mapa);
+
+        for(Profesor profesor : mapa.keySet()){
+            System.out.println("Profesor " + profesor.getIme() + " " + profesor.getPrezime() + " predaje sljedeće predmete: ");
+            Integer it = 1;
+            for(Predmet predmet : mapa.get(profesor)){
+                System.out.println((it) + ") " + predmet.getNaziv());
+                it++;
+            }
+        }
 
         for(int i = 0;i<BROJ_STUDENTA;i++){
             studenti.add(i, unosStudent(unos, i));
@@ -275,17 +300,18 @@ public class Glavna {
 
         List<Student> izvrsniStudenti = new ArrayList<>();
 
+        ispisStudenataPoKolegijima(predmeti);
+
+        //OCJENA
+        Ocjena o = Ocjena.IZVRSTAN;
         Integer brojIzvrsnihStudenata = 0;
         for(int i = 0;i<BROJ_ISPITA;i++){
-            if(ispiti.get(i).getOcjena().equals(5)){
+            if(ispiti.get(i).getOcjena().equals(o.getInteger())){
                 brojIzvrsnihStudenata++;
                 izvrsniStudenti.add(brojIzvrsnihStudenata - 1, ispiti.get(i).getStudent());
                 System.out.println("Student " + izvrsniStudenti.get(brojIzvrsnihStudenata - 1).getIme() + " " + izvrsniStudenti.get(brojIzvrsnihStudenata - 1).getPrezime() + " je ostvario ocjenu 'izvrstan' na predmetu '" + ispiti.get(i).getPredmet().getNaziv() + "'");
             }
         }
-
-
-        ispisStudenataPoKolegijima(predmeti);
 
         Integer faks = null;
         boolean nastaviPetlju = false;
@@ -329,8 +355,9 @@ public class Glavna {
         for(int i = 0;i<ustanova.getStudenti().size();i++){
             boolean nastaviPetlju = false;
 
+            Ocjena o = Ocjena.NEDOVOLJAN;
             for(Ispit ispit : ustanova.getIspiti()){
-                if(ispit.getStudent() == ustanova.getStudenti().get(i) && ispit.getOcjena() == 1){
+                if(ispit.getStudent() == ustanova.getStudenti().get(i) && ispit.getOcjena().equals(o.getInteger())){
                     System.out.println("Student " + ustanova.getStudenti().get(i).getIme() + " " + ustanova.getStudenti().get(i).getPrezime() + " zbog negativne ocjene na jednom od ispita ima prosjek nedovoljan(1)");
                     return;
                 }
@@ -371,6 +398,8 @@ public class Glavna {
             }
 
             System.out.println("Konacna ocjena studija studenta "+ ustanova.getStudenti().get(i).getIme() + " " + ustanova.getStudenti().get(i).getPrezime() + " je " + konacneOcjene.get(i));
+
+
         }
 
 
@@ -417,10 +446,14 @@ public class Glavna {
         unos.nextLine();
 
         List<ObrazovnaUstanova> ustanove = new ArrayList<>();
+        Map<Profesor, List<Predmet>> mapa = new HashMap<>();
 
         for(int i = 0;i<brojUstanova;i++){
+            if(ustanove.size() > 0){
+                ustanove.clear();
+            }
             System.out.println("Unesite podatke za " + (i+1) + ". obrazovnu ustanovu: ");
-            ustanove.add(i, unosUstanove(unos));
+            ustanove.add(i, unosUstanove(unos, mapa));
             odabirStudenataZaNagrade(unos, ustanove.get(i));
         }
     }

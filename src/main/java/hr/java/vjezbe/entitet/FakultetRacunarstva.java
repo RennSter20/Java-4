@@ -22,10 +22,10 @@ public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski 
     @Override
     public BigDecimal izracunajKonacnuOcjenuStudijaZaStudenta(List<Ispit> ispiti, Integer pismeni, Integer diplomski, Student student) {
 
-        List<Ispit> ispitiStudenta = new ArrayList<>();
+        List<Ispit> ispitiStudenta;
         ispitiStudenta = filtrirajIspitePoStudentu(ispiti,student);
 
-        BigDecimal prosjekOcjenaNaIspitima = null;
+        BigDecimal prosjekOcjenaNaIspitima;
 
         try{
 
@@ -49,10 +49,10 @@ public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski 
         List<Integer> brojIzvrsnihOcjena = new ArrayList<>();
         for(int i = 0;i< getIspiti().size();i++) brojIzvrsnihOcjena.add(i, 0);
 
-
+        Ocjena o = Ocjena.IZVRSTAN;
         for(Ispit ispit : getIspiti()){
             for(int i = 0;i< getStudenti().size();i++){
-                if(ispit.getStudent() == getStudenti().get(i) && ispit.getOcjena() == 5){
+                if(ispit.getStudent() == getStudenti().get(i) && ispit.getOcjena() == o.ocjena){
                     Integer tempIzvrsnaOcjena = brojIzvrsnihOcjena.get(i) + 1;
                     brojIzvrsnihOcjena.add(i, tempIzvrsnaOcjena);
                 }
@@ -61,7 +61,7 @@ public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski 
 
         int lastIndex = 0;
         for(int i = brojIzvrsnihOcjena.size()-1;i>-1;i--){
-            if(brojIzvrsnihOcjena.get(i) == 5){
+            if(brojIzvrsnihOcjena.get(i) == o.ocjena){
                 lastIndex = i;
             }
         }

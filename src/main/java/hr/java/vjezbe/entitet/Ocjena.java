@@ -2,15 +2,28 @@ package hr.java.vjezbe.entitet;
 
 public enum Ocjena {
 
-    //TO DO 2.
-
-    nedovoljan(1),
-    dovoljan(2),
-    dobar(3),
-    vrloDobar(4),
-    izvrstan(5);
 
 
-    Ocjena(int i) {
+    NEDOVOLJAN(1, "nedovoljan"),
+    DOVOLJAN(2, "dovoljan"),
+    DOBAR(3, "dobar"),
+    VRLODOBAR(4, "vrlo dobar"),
+    IZVRSTAN(5, "izvrstan");
+
+
+    Integer ocjena;
+    String opis;
+    Ocjena(int i, String s) {
+        ocjena = i;
+        opis = s;
     }
+
+    public Integer getInteger(){
+        return ocjena;
+    }
+    public String getOpis(){
+        return opis;
+    }
+
+
 }
