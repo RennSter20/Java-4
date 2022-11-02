@@ -2,6 +2,7 @@ package hr.java.vjezbe.glavna;
 
 import hr.java.vjezbe.entitet.*;
 import hr.java.vjezbe.iznimke.PostojiViseNajmadjihStudenataException;
+import hr.java.vjezbe.sortiranje.StudentSorter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -9,10 +10,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Glavna {
 
@@ -235,7 +233,23 @@ public class Glavna {
 
         return new Ispit(predmeti.get(tempOdabirPredmet - 1), studenti.get(tempOdabirStudenta - 1), tempOcjena, tempDatum, new Dvorana(tempDvorana, tempZgrada));
     }
+    public static void ispisStudenataPoKolegijima(List<Predmet> predmeti){
 
+        StudentSorter sorter = new StudentSorter();
+
+        for(Predmet predmet : predmeti){
+            if(predmet.getStudenti().size() == 0){
+                System.out.println("Nema studenata upisanih na predmet '" + predmet.getNaziv() + "'.");
+            }else{
+                System.out.println("Studenti upisani na predmet '" + predmet.getNaziv() + "'.");
+                Collections.sort(predmet.getStudenti(), sorter);
+                for(Student student : predmet.getStudenti()){
+                    System.out.println(student.getPrezime() + " " + student.getIme());
+                }
+            }
+        }
+
+    }
     static ObrazovnaUstanova unosUstanove(Scanner unos){
 
         List<Profesor> profesori = new ArrayList<>();
@@ -271,10 +285,10 @@ public class Glavna {
         }
 
 
+        ispisStudenataPoKolegijima(predmeti);
+
         Integer faks = null;
-
         boolean nastaviPetlju = false;
-
         do{
             try{
                 System.out.println("Odaberite obrazovnu ustanovu za navedene podatke koju želite unijeti (1 - Veleuciliste Jave, 2 - Fakultet racunarstva): ");
@@ -373,6 +387,8 @@ public class Glavna {
             }
         }
     }
+
+
 
     public static void main(String[] args) {
 
