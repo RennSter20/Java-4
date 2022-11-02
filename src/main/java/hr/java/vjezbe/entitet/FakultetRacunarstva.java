@@ -7,21 +7,25 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski {
 
     public static final Logger logger = LoggerFactory.getLogger(Glavna.class);
 
-    public FakultetRacunarstva(String naziv, Predmet[] predmeti, Profesor[] profesori, Student[] studenti, Ispit[] ispiti) {
+    public FakultetRacunarstva(String naziv, List<Predmet> predmeti, List<Profesor> profesori, List<Student> studenti, List<Ispit> ispiti) {
         super(naziv, predmeti, profesori, studenti, ispiti);
     }
 
     //DONE
     @Override
-    public BigDecimal izracunajKonacnuOcjenuStudijaZaStudenta(Ispit[] ispiti, Integer pismeni, Integer diplomski, Student student) {
+    public BigDecimal izracunajKonacnuOcjenuStudijaZaStudenta(List<Ispit> ispiti, Integer pismeni, Integer diplomski, Student student) {
 
-        Ispit[] ispitiStudenta = filtrirajIspitePoStudentu(ispiti, student);
+        List<Ispit> ispitiStudenta = new ArrayList<>();
+        ispitiStudenta = filtrirajIspitePoStudentu(ispiti,student);
+
         BigDecimal prosjekOcjenaNaIspitima = null;
 
         try{
@@ -43,38 +47,39 @@ public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski 
     @Override
     public Student odrediNajuspjesnijegStudentaNaGodini(Integer godina) {
 
-        Integer[] brojIzvrsnihOcjena = new Integer[getStudenti().length];
-        for(int i = 0;i< getIspiti().length;i++) brojIzvrsnihOcjena[i] = 0;
+        List<Integer> brojIzvrsnihOcjena = new ArrayList<>();
+        for(int i = 0;i< getIspiti().size();i++) brojIzvrsnihOcjena.add(i, 0);
 
 
         for(Ispit ispit : getIspiti()){
-            for(int i = 0;i< getStudenti().length;i++){
-                if(ispit.getStudent() == getStudenti()[i] && ispit.getOcjena() == 5){
-                    brojIzvrsnihOcjena[i]++;
+            for(int i = 0;i< getStudenti().size();i++){
+                if(ispit.getStudent() == getStudenti().get(i) && ispit.getOcjena() == 5){
+                    Integer tempIzvrsnaOcjena = brojIzvrsnihOcjena.get(i) + 1;
+                    brojIzvrsnihOcjena.add(i, tempIzvrsnaOcjena);
                 }
             }
         }
 
         int lastIndex = 0;
-        for(int i = brojIzvrsnihOcjena.length-1;i>-1;i--){
-            if(brojIzvrsnihOcjena[i] == 5){
+        for(int i = brojIzvrsnihOcjena.size()-1;i>-1;i--){
+            if(brojIzvrsnihOcjena.get(i) == 5){
                 lastIndex = i;
             }
         }
 
-        return getStudenti()[lastIndex];
+        return getStudenti().get(lastIndex);
     }
 
     //DONE
     @Override
     public Student odrediStudentaZaRektorovuNagradu() throws PostojiViseNajmadjihStudenataException {
 
-        BigDecimal[] prosjeci = new BigDecimal[getStudenti().length];
+        List<BigDecimal> prosjeci = new ArrayList<>();
 
 
-        for(int i = 0;i< getStudenti().length;i++){
+        for(int i = 0;i< getStudenti().size();i++){
             try{
-                prosjeci[i] = odrediProsjekOcjenaNaIspitima(filtrirajIspitePoStudentu(getIspiti(), getStudenti()[i]));
+                prosjeci.add(i, odrediProsjekOcjenaNaIspitima(filtrirajIspitePoStudentu(getIspiti(), getStudenti().get(i))));
             }catch(NemoguceOdreditiProsjekStudentaException e){
                 System.out.println(e.getMessage());
 
@@ -82,24 +87,24 @@ public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski 
         }
 
         Integer najbolji = 0;
-        for(int i = 1;i< getStudenti().length;i++){
-            if(prosjeci[i].compareTo(prosjeci[najbolji]) > 0){
+        for(int i = 1;i< getStudenti().size();i++){
+            if(prosjeci.get(i).compareTo(prosjeci.get(najbolji)) > 0){
                 najbolji = i;
-            }else if(prosjeci[i].compareTo(prosjeci[najbolji]) == 0){
-                if(getStudenti()[i].getDatumRodjenja().isAfter(getStudenti()[i].getDatumRodjenja())){
+            }else if(prosjeci.get(i).compareTo(prosjeci.get(najbolji)) == 0){
+                if(getStudenti().get(i).getDatumRodjenja().isAfter(getStudenti().get(i).getDatumRodjenja())){
                     najbolji = i;
                 }
             }
         }
 
         Integer brojIstihStudenata = 0;
-        Student[] studentiIstogProsjekaIRodjendana = new Student[brojIstihStudenata];
+        List<Student> studentiIstogProsjekaIRodjendana = new ArrayList<>();
 
-        for(int i = 0;i<getStudenti().length;i++){
-            if(prosjeci[i].equals(prosjeci[najbolji]) && getStudenti()[i].getDatumRodjenja().isEqual(getStudenti()[i].getDatumRodjenja())){
+        for(int i = 0;i<getStudenti().size();i++){
+            if(prosjeci.get(i).equals(prosjeci.get(najbolji)) && getStudenti().get(i).getDatumRodjenja().isEqual(getStudenti().get(i).getDatumRodjenja())){
                 brojIstihStudenata++;
-                studentiIstogProsjekaIRodjendana = Arrays.copyOf(studentiIstogProsjekaIRodjendana, brojIstihStudenata);
-                studentiIstogProsjekaIRodjendana[brojIstihStudenata - 1] = getStudenti()[i];
+                //studentiIstogProsjekaIRodjendana = Arrays.copyOf(studentiIstogProsjekaIRodjendana, brojIstihStudenata);
+                studentiIstogProsjekaIRodjendana.add(brojIstihStudenata - 1, getStudenti().get(i));
             }
         }
 
@@ -109,13 +114,13 @@ public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski 
                 if(i == brojIstihStudenata - 1){
                     studentiZaIspisati += " i ";
                 }
-                /*Error*/studentiZaIspisati += studentiIstogProsjekaIRodjendana[i].getIme() + " " + studentiIstogProsjekaIRodjendana[i].getPrezime() + " ";
+                /*Error*/studentiZaIspisati += studentiIstogProsjekaIRodjendana.get(i).getIme() + " " + studentiIstogProsjekaIRodjendana.get(i).getPrezime() + " ";
 
             }
             throw new PostojiViseNajmadjihStudenataException("Pronadeno je vise najmladih studenata s istim datumom rodenja, a to su " + studentiZaIspisati);
 
         }
-        return getStudenti()[najbolji];
+        return getStudenti().get(najbolji);
 
     }
 }

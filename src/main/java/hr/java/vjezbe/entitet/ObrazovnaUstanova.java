@@ -1,17 +1,19 @@
 package hr.java.vjezbe.entitet;
 
+import java.util.List;
+
 public abstract class ObrazovnaUstanova {
 
     private String naziv;
-    private Predmet[] predmeti;
-    private Profesor[] profesori;
-    private Student[] studenti;
-    private Ispit[] ispiti;
+    private List<Predmet> predmeti;
+    private List<Profesor> profesori;
+    private List<Student> studenti;
+    private List<Ispit> ispiti;
 
     //4
     public abstract Student odrediNajuspjesnijegStudentaNaGodini(Integer godina);
 
-    public ObrazovnaUstanova(String naziv, Predmet[] predmeti, Profesor[] profesori, Student[] studenti, Ispit[] ispiti) {
+    public ObrazovnaUstanova(String naziv, List<Predmet> predmeti, List<Profesor> profesori, List<Student> studenti, List<Ispit> ispiti) {
         this.naziv = naziv;
         this.predmeti = predmeti;
         this.profesori = profesori;
@@ -27,35 +29,35 @@ public abstract class ObrazovnaUstanova {
         this.naziv = naziv;
     }
 
-    public Predmet[] getPredmeti() {
+    public List<Predmet> getPredmeti() {
         return predmeti;
     }
 
-    public void setPredmeti(Predmet[] predmeti) {
+    public void setPredmeti(List<Predmet> predmeti) {
         this.predmeti = predmeti;
     }
 
-    public Profesor[] getProfesori() {
+    public List<Profesor> getProfesori() {
         return profesori;
     }
 
-    public void setProfesori(Profesor[] profesori) {
+    public void setProfesori(List<Profesor> profesori) {
         this.profesori = profesori;
     }
 
-    public Student[] getStudenti() {
+    public List<Student> getStudenti() {
         return studenti;
     }
 
-    public void setStudenti(Student[] studenti) {
+    public void setStudenti(List<Student> studenti) {
         this.studenti = studenti;
     }
 
-    public Ispit[] getIspiti() {
+    public List<Ispit> getIspiti() {
         return ispiti;
     }
 
-    public void setIspiti(Ispit[] ispiti) {
+    public void setIspiti(List<Ispit> ispiti) {
         this.ispiti = ispiti;
     }
 }

@@ -6,20 +6,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class VeleucilisteJave extends ObrazovnaUstanova implements Visokoskolska{
 
     public static final Logger logger = LoggerFactory.getLogger(Glavna.class);
 
-    public VeleucilisteJave(String naziv, Predmet[] predmeti, Profesor[] profesori, Student[] studenti, Ispit[] ispiti) {
+    public VeleucilisteJave(String naziv, List<Predmet> predmeti, List<Profesor> profesori, List<Student> studenti, List<Ispit> ispiti) {
         super(naziv, predmeti, profesori, studenti, ispiti);
     }
 
     //DONE
     @Override
-    public BigDecimal izracunajKonacnuOcjenuStudijaZaStudenta(Ispit[] ispiti, Integer pismeni, Integer obrana, Student student) {
+    public BigDecimal izracunajKonacnuOcjenuStudijaZaStudenta(List<Ispit> ispiti, Integer pismeni, Integer obrana, Student student) {
 
-            Ispit[] ispitiStudenta = filtrirajIspitePoStudentu(ispiti, student);
+            List<Ispit> ispitiStudenta = filtrirajIspitePoStudentu(ispiti, student);
+
             BigDecimal prosjekOcjenaNaIspitima = null;
 
             try{
@@ -41,12 +43,12 @@ public class VeleucilisteJave extends ObrazovnaUstanova implements Visokoskolska
         Integer indexStudenta = 0;
         BigDecimal najboljiProsjek = BigDecimal.valueOf(0);
 
-        for(int i = 0;i< getIspiti().length;i++){
+        for(int i = 0;i< getIspiti().size();i++){
 
             BigDecimal temp = null;
 
             try{
-                temp = odrediProsjekOcjenaNaIspitima(filtrirajIspitePoStudentu(getIspiti(), getStudenti()[i]));
+                temp = odrediProsjekOcjenaNaIspitima(filtrirajIspitePoStudentu(getIspiti(), getStudenti().get(i)));
             }catch(NemoguceOdreditiProsjekStudentaException e){
                 System.out.println(e.getMessage());
             }
@@ -56,7 +58,7 @@ public class VeleucilisteJave extends ObrazovnaUstanova implements Visokoskolska
             }
         }
 
-        return getStudenti()[indexStudenta];
+        return getStudenti().get(indexStudenta);
 
     }
 }

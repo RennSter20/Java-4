@@ -31,3 +31,9 @@ java.util.InputMismatchException: null
 java.util.InputMismatchException: null
 	at hr.java.vjezbe.glavna.Glavna.main(Glavna.java:408)
 2022-10-29 09:59:40,058 ERROR [main] h.j.v.g.Glavna [Glavna.java:383] hr.java.vjezbe.iznimke.PostojiViseNajmadjihStudenataException: Pronadeno je vise najmladih studenata s istim datumom rodenja, a to su emi fran  i Danka zupa 
+2022-11-02 14:14:34,399 ERROR [main] h.j.v.g.Glavna [Glavna.java:412] java.util.InputMismatchException
+java.util.InputMismatchException: null
+	at hr.java.vjezbe.glavna.Glavna.main(Glavna.java:412)
+2022-11-02 14:20:01,661 ERROR [main] h.j.v.g.Glavna [Glavna.java:412] java.util.InputMismatchException
+java.util.InputMismatchException: null
+	at hr.java.vjezbe.glavna.Glavna.main(Glavna.java:412)

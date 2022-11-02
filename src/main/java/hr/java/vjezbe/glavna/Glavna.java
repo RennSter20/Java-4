@@ -9,7 +9,9 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Glavna {
@@ -59,30 +61,30 @@ public class Glavna {
 
         return new Profesor.Builder().withIme(tempIme).withPrezime(tempPrezime).withSifra(tempSifra).withTitula(tempTitula).build();
     }
-    static Predmet[] unosPredmet(Scanner unos, Profesor[] profesori, Student[] studenti){
+    static List<Predmet> unosPredmet(Scanner unos, List<Profesor> profesori, List<Student> studenti){
 
-        String[] tempSifra = new String[BROJ_PREDMETA];
-        String[] tempNaziv = new String[BROJ_PREDMETA];
-        Integer[] tempECTS = new Integer[BROJ_PREDMETA];
-        Integer[] tempOdabirProfesora = new Integer[BROJ_PREDMETA];
-        Integer[] tempBrojStudenata = new Integer[BROJ_PREDMETA];
+        List<String> tempSifra = new ArrayList<>();
+        List<String> tempNaziv = new ArrayList<>();
+        List<Integer> tempECTS = new ArrayList<>();
+        List<Integer> tempOdabirProfesora = new ArrayList();
+        List<Integer> tempBrojStudenata = new ArrayList<>();
 
         boolean nastaviPetlju = false;
 
         for(int i = 0;i<BROJ_PREDMETA;i++){
             System.out.println("Unesite "+ (i+1) + ". predmet: ");
             System.out.print("Unesite sifru predmeta: ");
-            tempSifra[i] = unos.nextLine();
+            tempSifra.add(i, unos.nextLine());
 
             System.out.print("Unesite naziv predmeta: ");
-            tempNaziv[i] = unos.nextLine();
+            tempNaziv.add(i, unos.nextLine());
 
             do{
 
                 try{
-                    System.out.print("Unesite broj ECTS bodova za predmet '" + tempNaziv[i] + "': ");
-                    tempECTS[i] = unos.nextInt();
-                    if(tempECTS[i]  < 1){
+                    System.out.print("Unesite broj ECTS bodova za predmet '" + tempNaziv.get(i) + "': ");
+                    tempECTS.add(i, unos.nextInt());
+                    if(tempECTS.get(i) < 1){
                         nastaviPetlju = true;
                         System.out.println("Unesen je neispravan broj ECTS bodova za predmet!");
                     }else{
@@ -105,12 +107,12 @@ public class Glavna {
 
                     System.out.println("Odaberite profesora: ");
                     for(int j = 0;j<BROJ_PROFESORA;j++){
-                        System.out.println((j+1) + ". " + profesori[j].getIme() + " " + profesori[j].getPrezime());
+                        System.out.println((j+1) + ". " + profesori.get(j).getIme() + " " + profesori.get(j).getPrezime());
                     }
 
                     System.out.print("Odabir >> ");
-                    tempOdabirProfesora[i] = unos.nextInt();
-                    if(tempOdabirProfesora[i] < 1 || tempOdabirProfesora[i] > BROJ_PROFESORA){
+                    tempOdabirProfesora.add(i, unos.nextInt());
+                    if(tempOdabirProfesora.get(i) < 1 || tempOdabirProfesora.get(i) > BROJ_PROFESORA){
                         System.out.println("Unesen je broj koji nije dodijeljen niti jednom profesoru!");
                         nastaviPetlju = true;
                     }else{
@@ -129,9 +131,9 @@ public class Glavna {
             nastaviPetlju = false;
             do{
                 try{
-                    System.out.print("Unesite broj studenata za predmet '" + tempNaziv[i] + "': ");
-                    tempBrojStudenata[i] = unos.nextInt();
-                    if(tempBrojStudenata[i] < 1){
+                    System.out.print("Unesite broj studenata za predmet '" + tempNaziv.get(i) + "': ");
+                    tempBrojStudenata.add(i, unos.nextInt());
+                    if(tempBrojStudenata.get(i) < 1){
                         System.out.println("Unesen je broj manji od 1");
                         nastaviPetlju = true;
                     }else{
@@ -148,23 +150,24 @@ public class Glavna {
         }
 
         for(int i = 0;i<BROJ_STUDENTA;i++){
-            studenti[i] = unosStudent(unos, i);
+            studenti.add(i, unosStudent(unos, i));
         }
 
-        Predmet[] predmeti = new Predmet[BROJ_PREDMETA];
+        List<Predmet> predmeti = new ArrayList<>();
+
         for(int i = 0;i<BROJ_PREDMETA;i++){
-            predmeti[i] = new Predmet(tempSifra[i], tempNaziv[i], tempECTS[i], profesori[tempOdabirProfesora[i]-1], studenti);
+            predmeti.add(i, new Predmet(tempSifra.get(i), tempNaziv.get(i), tempECTS.get(i), profesori.get(tempOdabirProfesora.get(i) - 1), studenti));
         }
 
         return predmeti;
     }
 
-    static Ispit unosIspit(Scanner unos, Integer redniBroj, Predmet[] predmeti, Student[] studenti){
+    static Ispit unosIspit(Scanner unos, Integer redniBroj, List<Predmet> predmeti, List<Student> studenti){
 
         System.out.println("Unesite " + (redniBroj+1) + ". ispitni rok: ");
         System.out.println("Odaberite predmet: ");
         for(int i = 0;i<BROJ_PREDMETA;i++){
-            System.out.println((i+1) + " " + predmeti[i].getNaziv());
+            System.out.println((i+1) + " " + predmeti.get(i).getNaziv());
         }
 
         boolean nastaviPetlju = false;
@@ -200,7 +203,7 @@ public class Glavna {
 
         System.out.println("Odaberite studenta: ");
         for(int i = 0;i<BROJ_STUDENTA;i++){
-            System.out.println((i+1) + " " + studenti[i].getIme() + " "+ studenti[i].getPrezime());
+            System.out.println((i+1) + " " + studenti.get(i).getIme() + " "+ studenti.get(i).getPrezime());
         }
 
         Integer tempOdabirStudenta = null;
@@ -250,35 +253,36 @@ public class Glavna {
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd.MM.yyyy.'T'HH:mm");
         LocalDateTime tempDatum = LocalDate.parse(unos.nextLine(), dateFormat).atStartOfDay();
 
-        return new Ispit(predmeti[tempOdabirPredmet-1], studenti[tempOdabirStudenta-1], tempOcjena, tempDatum, new Dvorana(tempDvorana, tempZgrada));
+        return new Ispit(predmeti.get(tempOdabirPredmet - 1), studenti.get(tempOdabirStudenta - 1), tempOcjena, tempDatum, new Dvorana(tempDvorana, tempZgrada));
     }
 
     static ObrazovnaUstanova unosUstanove(Scanner unos){
-        Profesor[] profesori = new Profesor[BROJ_PROFESORA];
-        Predmet[] predmeti = new Predmet[BROJ_PREDMETA];
-        Student[] studenti = new Student[BROJ_STUDENTA];
-        Ispit[] ispiti = new Ispit[BROJ_ISPITA];
+
+        List<Profesor> profesori = new ArrayList<>();
+        List<Predmet> predmeti = new ArrayList<>();
+        List<Student> studenti = new ArrayList<>();
+        List<Ispit> ispiti = new ArrayList<>();
 
 
         for(int i = 0;i<BROJ_PROFESORA;i++){
-            profesori[i] = unosProfesor(unos, i);
+            profesori.add(i, unosProfesor(unos, i));
         }
 
         predmeti = unosPredmet(unos, profesori, studenti);
 
         for(int i = 0;i<BROJ_ISPITA;i++){
-            ispiti[i] = unosIspit(unos, i, predmeti, studenti);
+            ispiti.add(i, unosIspit(unos, i, predmeti, studenti));
         }
 
-        Student[] izvrsniStudenti;
+
+        List<Student> izvrsniStudenti = new ArrayList<>();
 
         Integer brojIzvrsnihStudenata = 0;
         for(int i = 0;i<BROJ_ISPITA;i++){
-            if(ispiti[i].getOcjena().equals(5)){
+            if(ispiti.get(i).getOcjena().equals(5)){
                 brojIzvrsnihStudenata++;
-                izvrsniStudenti = new Student[brojIzvrsnihStudenata];
-                izvrsniStudenti[brojIzvrsnihStudenata - 1] = ispiti[i].getStudent();
-                System.out.println("Student " + izvrsniStudenti[brojIzvrsnihStudenata-1].getIme() + " " + izvrsniStudenti[brojIzvrsnihStudenata-1].getPrezime() + " je ostvario ocjenu 'izvrstan' na predmetu '" + ispiti[i].getPredmet().getNaziv() + "'");
+                izvrsniStudenti.add(brojIzvrsnihStudenata - 1, ispiti.get(i).getStudent());
+                System.out.println("Student " + izvrsniStudenti.get(brojIzvrsnihStudenata - 1).getIme() + " " + izvrsniStudenti.get(brojIzvrsnihStudenata - 1).getPrezime() + " je ostvario ocjenu 'izvrstan' na predmetu '" + ispiti.get(i).getPredmet().getNaziv() + "'");
             }
         }
 
@@ -320,24 +324,24 @@ public class Glavna {
 
     static void odabirStudenataZaNagrade(Scanner unos, ObrazovnaUstanova ustanova){
 
-        Integer[] zavrsvni = new Integer[ustanova.getStudenti().length];
-        Integer[] obrana = new Integer[ustanova.getStudenti().length];
-        BigDecimal[] konacneOcjene = new BigDecimal[ustanova.getStudenti().length];
+        List<Integer> zavrsni = new ArrayList<>();
+        List<Integer> obrana = new ArrayList<>();
+        List<BigDecimal> konacneOcjene = new ArrayList<>();
 
-        for(int i = 0;i<ustanova.getStudenti().length;i++){
+        for(int i = 0;i<ustanova.getStudenti().size();i++){
             boolean nastaviPetlju = false;
 
             for(Ispit ispit : ustanova.getIspiti()){
-                if(ispit.getStudent() == ustanova.getStudenti()[i] && ispit.getOcjena() == 1){
-                    System.out.println("Student " + ustanova.getStudenti()[i].getIme() + " " + ustanova.getStudenti()[i].getPrezime() + " zbog negativne ocjene na jednom od ispita ima prosjek nedovoljan(1)");
+                if(ispit.getStudent() == ustanova.getStudenti().get(i) && ispit.getOcjena() == 1){
+                    System.out.println("Student " + ustanova.getStudenti().get(i).getIme() + " " + ustanova.getStudenti().get(i).getPrezime() + " zbog negativne ocjene na jednom od ispita ima prosjek nedovoljan(1)");
                     return;
                 }
             }
 
             do{
                 try{
-                    System.out.println("Unesite ocjenu zavrsnog rada za studenta: " + ustanova.getStudenti()[i].getIme() + " " + ustanova.getStudenti()[i].getPrezime());
-                    zavrsvni[i] = unos.nextInt();
+                    System.out.println("Unesite ocjenu zavrsnog rada za studenta: " + ustanova.getStudenti().get(i).getIme() + " " + ustanova.getStudenti().get(i).getPrezime());
+                    zavrsni.add(i, unos.nextInt());
                     unos.nextLine();
                 }catch (InputMismatchException e){
                     System.out.println("Neispravan unos!");
@@ -352,8 +356,8 @@ public class Glavna {
             nastaviPetlju = false;
             do{
                 try{
-                    System.out.println("Unesite ocjenu obrane zavrsng rada za studenta: " + ustanova.getStudenti()[i].getIme() + " " + ustanova.getStudenti()[i].getPrezime());
-                    obrana[i] = unos.nextInt();
+                    System.out.println("Unesite ocjenu obrane zavrsng rada za studenta: " + ustanova.getStudenti().get(i).getIme() + " " + ustanova.getStudenti().get(i).getPrezime());
+                    obrana.add(i, unos.nextInt());
                     unos.nextLine();
                 }catch (InputMismatchException e){
                     System.out.println("Neispravan unos!");
@@ -363,12 +367,12 @@ public class Glavna {
                 }
             }while(nastaviPetlju);
 
-            konacneOcjene[i] = ((Visokoskolska) ustanova).izracunajKonacnuOcjenuStudijaZaStudenta(ustanova.getIspiti(), zavrsvni[i], obrana[i], ustanova.getStudenti()[i]);
-            if(konacneOcjene[i] == null){
-                i = ustanova.getStudenti().length;
+            konacneOcjene.add(i, ((Visokoskolska) ustanova).izracunajKonacnuOcjenuStudijaZaStudenta(ustanova.getIspiti(), zavrsni.get(i), obrana.get(i), ustanova.getStudenti().get(i)));
+            if(konacneOcjene.get(i) == null){
+                i = ustanova.getStudenti().size();
             }
 
-            System.out.println("Konacna ocjena studija studenta "+ ustanova.getStudenti()[i].getIme() + " " + ustanova.getStudenti()[i].getPrezime() + " je " + konacneOcjene[i]);
+            System.out.println("Konacna ocjena studija studenta "+ ustanova.getStudenti().get(i).getIme() + " " + ustanova.getStudenti().get(i).getPrezime() + " je " + konacneOcjene.get(i));
         }
 
 
@@ -412,12 +416,12 @@ public class Glavna {
         }while(nastaviPetlju);
         unos.nextLine();
 
-        ObrazovnaUstanova[] ustanove = new ObrazovnaUstanova[brojUstanova];
+        List<ObrazovnaUstanova> ustanove = new ArrayList<>();
 
         for(int i = 0;i<brojUstanova;i++){
             System.out.println("Unesite podatke za " + (i+1) + ". obrazovnu ustanovu: ");
-            ustanove[i] = unosUstanove(unos);
-            odabirStudenataZaNagrade(unos, ustanove[i]);
+            ustanove.add(i, unosUstanove(unos));
+            odabirStudenataZaNagrade(unos, ustanove.get(i));
         }
     }
 }
