@@ -49,6 +49,12 @@ public class VeleucilisteJave extends ObrazovnaUstanova implements Visokoskolska
            return (prosjekOcjenaNaIspitima.multiply(BigDecimal.valueOf(2)).add(BigDecimal.valueOf(obrana).add(BigDecimal.valueOf(pismeni)))).divide(BigDecimal.valueOf(4));
     }
 
+    /**
+     * Metoda određuje najuspješnijeg studenta na godini na način da se odabere student s najboljim prosjekom.
+     * Ako više studenata ima isti najveći prosjek, izabire se student koji je posljednji po redu u listi.
+     * @param godina Parametar metode koji određiva za koju godinu će se odrediti najuspjesniji student.
+     * @return Najuspješniji student.
+     */
     @Override
     public Student odrediNajuspjesnijegStudentaNaGodini(Integer godina) {
 

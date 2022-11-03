@@ -1,5 +1,8 @@
 package hr.java.vjezbe.iznimke;
 
+/**
+ * Iznimka koja se baca u slučaju da su više studenata najmlađi.
+ */
 public class PostojiViseNajmadjihStudenataException extends RuntimeException {
 
     public PostojiViseNajmadjihStudenataException() {

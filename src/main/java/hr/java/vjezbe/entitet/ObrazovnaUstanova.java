@@ -13,7 +13,6 @@ public abstract class ObrazovnaUstanova {
     private List<Student> studenti;
     private List<Ispit> ispiti;
 
-    //4
     public abstract Student odrediNajuspjesnijegStudentaNaGodini(Integer godina);
 
     public ObrazovnaUstanova(String naziv, List<Predmet> predmeti, List<Profesor> profesori, List<Student> studenti, List<Ispit> ispiti) {

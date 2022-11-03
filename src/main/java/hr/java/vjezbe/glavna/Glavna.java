@@ -21,6 +21,12 @@ public class Glavna {
 
     public static final Logger logger = LoggerFactory.getLogger(Glavna.class);
 
+    /**
+     * Metoda služi za unos podataka o studentu.
+     * @param unos Scanner objekt
+     * @param redniBroj Redni broj studenta za upis.
+     * @return Objekt Student s pridruženim varijablama.
+     */
     static Student unosStudent(Scanner unos, Integer redniBroj){
 
         System.out.println("Unesite " + (redniBroj + 1) + ". studenta: ");
@@ -41,6 +47,13 @@ public class Glavna {
 
 
     }
+
+    /**
+     * Metoda služi za unos podataka o profesoru.
+     * @param unos Scanner objekt
+     * @param redniBroj Redni broj profesora za upis.
+     * @return Objekt Profesor s pridruženim varijablama.
+     */
     static Profesor unosProfesor(Scanner unos, Integer redniBroj){
 
         System.out.println("Unesite " + (redniBroj+1) + ". profesora: ");
@@ -59,6 +72,14 @@ public class Glavna {
 
         return new Profesor.Builder().withIme(tempIme).withPrezime(tempPrezime).withSifra(tempSifra).withTitula(tempTitula).build();
     }
+
+    /**
+     * Metoda služi za unos podataka o predmetima ustanove. Također se svakom profesoru pridružuje predmet koji on predaje.
+     * @param unos Scanner objekt
+     * @param profesori Lista profesora.
+     * @param mapa Mapa koja sadrži sve profesore i koje predmete oni predavaju.
+     * @return
+     */
     static List<Predmet> unosPredmet(Scanner unos, List<Profesor> profesori, Map<Profesor, List<Predmet>> mapa){
 
         List<String> tempSifra = new ArrayList<>();
@@ -152,6 +173,15 @@ public class Glavna {
 
         return predmeti;
     }
+
+    /**
+     * Metoda služi za unos podataka o ispitu.
+     * @param unos Scanner objekt.
+     * @param redniBroj Redni broj ispita.
+     * @param predmeti Predmeti ustanove.
+     * @param studenti Studenti ustanove.
+     * @return Ispit s unesenim podatcima.
+     */
     static Ispit unosIspit(Scanner unos, Integer redniBroj, List<Predmet> predmeti, List<Student> studenti){
 
         System.out.println("Unesite " + (redniBroj+1) + ". ispitni rok: ");
@@ -249,6 +279,11 @@ public class Glavna {
 
         return new Ispit(predmeti.get(tempOdabirPredmet - 1), studenti.get(tempOdabirStudenta - 1), tempOcjena, tempDatum, new Dvorana(tempDvorana, tempZgrada));
     }
+
+    /**
+     * Metoda služi za ispisivanje upisanih studenata po pojedinim predmetima.
+     * @param predmeti Predmeti ustanove.
+     */
     public static void ispisStudenataPoKolegijima(List<Predmet> predmeti){
 
         StudentSorter sorter = new StudentSorter();
@@ -266,6 +301,13 @@ public class Glavna {
         }
 
     }
+
+    /**
+     * Ovo je glavna metoda za unos podataka o ustanovi. U njoj se pozivaju sve ostale metode.
+     * @param unos Scanner objekt.
+     * @param mapa Mapa koja sadrži sve profesore i koje predmete oni predavaju.
+     * @return Objekt ObrazovnaUstanova s unesenim podatcima o istoj.
+     */
     static ObrazovnaUstanova unosUstanove(Scanner unos, Map<Profesor, List<Predmet>> mapa){
 
         List<Profesor> profesori = new ArrayList<>();
@@ -346,6 +388,11 @@ public class Glavna {
 
     }
 
+    /**
+     * Metoda određuje studente koji zaslužuju pojedine nagrade prema nekakvim kriterijima.
+     * @param unos Scanner objekt
+     * @param ustanova Ustanova za koju se moraju odrediti studenti za nagrade.
+     */
     static void odabirStudenataZaNagrade(Scanner unos, ObrazovnaUstanova ustanova){
 
         List<Integer> zavrsni = new ArrayList<>();
@@ -418,7 +465,10 @@ public class Glavna {
     }
 
 
-
+    /**
+     * Main metoda projekta. Pozivaju se metode za unos podataka ustanove i odabir studenata za nagrade.
+     * @param args
+     */
     public static void main(String[] args) {
 
         Scanner unos = new Scanner(System.in);
