@@ -152,7 +152,7 @@ public class Glavna {
         List<Predmet> predmeti = new ArrayList<>();
 
         for(int i = 0;i<BROJ_PREDMETA;i++){
-            predmeti.add(i, new Predmet.PredmetBuilder().setSifra(tempSifra.get(i)).setNaziv(tempNaziv.get(i)).setBrojEctsBodova(tempECTS.get(i)).setNositelj(profesori.get(tempOdabirProfesora.get(i) - 1)).setStudenti(new ArrayList<>()).createPredmet());
+            predmeti.add(i, new Predmet.PredmetBuilder().setSifra(tempSifra.get(i)).setNaziv(tempNaziv.get(i)).setBrojEctsBodova(tempECTS.get(i)).setNositelj(profesori.get(tempOdabirProfesora.get(i) - 1)).setStudenti(new HashSet<>()).createPredmet());
         }
 
         for(Profesor profesor : profesori){
@@ -292,11 +292,13 @@ public class Glavna {
             if(predmet.getStudenti().size() == 0){
                 System.out.println("Nema studenata upisanih na predmet '" + predmet.getNaziv() + "'.");
             }else{
-                System.out.println("Studenti upisani na predmet '" + predmet.getNaziv() + "'.");
-                Collections.sort(predmet.getStudenti(), sorter);
-                for(Student student : predmet.getStudenti()){
-                    System.out.println(student.getPrezime() + " " + student.getIme());
+
+                System.out.printf("Studenti upisani na predmet %s (%s):%n", predmet.getNaziv(), predmet.getSifra());
+
+                for (var s : predmet.getStudenti() .stream().sorted(new StudentSorter()).toList()) {
+                    System.out.printf("%s %s %s%n", s.getJmbag(), s.getPrezime(), s.getIme());
                 }
+
             }
         }
 

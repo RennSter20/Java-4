@@ -46,3 +46,23 @@ java.util.InputMismatchException: null
 2022-11-02 14:55:02,023 ERROR [main] h.j.v.g.Glavna [Glavna.java:414] java.util.InputMismatchException
 java.util.InputMismatchException: null
 	at hr.java.vjezbe.glavna.Glavna.main(Glavna.java:414)
+2022-11-17 11:09:44,782 ERROR [main] h.j.v.g.Glavna [Glavna.java:143] java.util.InputMismatchException
+java.util.InputMismatchException: null
+	at hr.java.vjezbe.glavna.Glavna.unosPredmet(Glavna.java:143)
+	at hr.java.vjezbe.glavna.Glavna.unosUstanove(Glavna.java:377)
+	at hr.java.vjezbe.glavna.Glavna.main(Glavna.java:560)
+2022-11-17 11:09:46,264 ERROR [main] h.j.v.g.Glavna [Glavna.java:143] java.util.InputMismatchException
+java.util.InputMismatchException: null
+	at hr.java.vjezbe.glavna.Glavna.unosPredmet(Glavna.java:143)
+	at hr.java.vjezbe.glavna.Glavna.unosUstanove(Glavna.java:377)
+	at hr.java.vjezbe.glavna.Glavna.main(Glavna.java:560)
+2022-11-17 11:10:28,604 ERROR [main] h.j.v.g.Glavna [Glavna.java:143] java.util.InputMismatchException
+java.util.InputMismatchException: null
+	at hr.java.vjezbe.glavna.Glavna.unosPredmet(Glavna.java:143)
+	at hr.java.vjezbe.glavna.Glavna.unosUstanove(Glavna.java:377)
+	at hr.java.vjezbe.glavna.Glavna.main(Glavna.java:560)
+2022-11-17 11:10:30,377 ERROR [main] h.j.v.g.Glavna [Glavna.java:143] java.util.InputMismatchException
+java.util.InputMismatchException: null
+	at hr.java.vjezbe.glavna.Glavna.unosPredmet(Glavna.java:143)
+	at hr.java.vjezbe.glavna.Glavna.unosUstanove(Glavna.java:377)
+	at hr.java.vjezbe.glavna.Glavna.main(Glavna.java:560)

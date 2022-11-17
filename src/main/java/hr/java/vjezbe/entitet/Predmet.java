@@ -1,6 +1,7 @@
 package hr.java.vjezbe.entitet;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Klasa predmet sadrži sve informacije o predmetu, od šifre, naziva, nositelja te svih studenata koji su upisani na taj predmet. Ti studenti se određuju tako da se pridodaju predmetu jedino ako
@@ -11,9 +12,9 @@ public class Predmet {
     private String sifra, naziv;
     private Integer brojEctsBodova;
     private Profesor nositelj;
-    private List<Student> studenti;
+    private Set<Student> studenti;
 
-    public Predmet(String sifra, String naziv, Integer brojEctsBodova, Profesor nositelj, List<Student> studenti) {
+    public Predmet(String sifra, String naziv, Integer brojEctsBodova, Profesor nositelj, Set<Student> studenti) {
         this.sifra = sifra;
         this.naziv = naziv;
         this.brojEctsBodova = brojEctsBodova;
@@ -26,7 +27,7 @@ public class Predmet {
         private String naziv;
         private Integer brojEctsBodova;
         private Profesor nositelj;
-        private List<Student> studenti;
+        private Set<Student> studenti;
 
         public PredmetBuilder setSifra(String sifra) {
             this.sifra = sifra;
@@ -48,7 +49,7 @@ public class Predmet {
             return this;
         }
 
-        public PredmetBuilder setStudenti(List<Student> studenti) {
+        public PredmetBuilder setStudenti(Set<Student> studenti) {
             this.studenti = studenti;
             return this;
         }
@@ -83,10 +84,10 @@ public class Predmet {
     public void setNositelj(Profesor nositelj) {
         this.nositelj = nositelj;
     }
-    public List<Student> getStudenti() {
+    public Set<Student> getStudenti() {
         return studenti;
     }
-    public void setStudenti(List<Student> studenti) {
+    public void setStudenti(Set<Student> studenti) {
         this.studenti = studenti;
     }
 }

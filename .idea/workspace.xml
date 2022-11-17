@@ -6,69 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d8b0317b-e151-4878-8f62-0e3b240dce42" name="Changes" comment="Final commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/allclasses-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/allpackages-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constant-values.html" beforeDir="false" afterPath="$PROJECT_DIR$/constant-values.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/help-doc.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Diplomski.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Diplomski.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Dvorana.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Dvorana.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/FakultetRacunarstva.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/FakultetRacunarstva.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Ispit.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Ispit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/ObrazovnaUstanova.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/ObrazovnaUstanova.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Ocjena.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Ocjena.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Online.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Online.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Osoba.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Osoba.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Predmet.PredmetBuilder.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Predmet.PredmetBuilder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Predmet.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Predmet.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Profesor.Builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Profesor.Builder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Profesor.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Profesor.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Student.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Student.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/VeleucilisteJave.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/VeleucilisteJave.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Visokoskolska.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/Visokoskolska.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/entitet/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/entitet/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/glavna/Glavna.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/glavna/Glavna.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/glavna/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/glavna/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/glavna/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/glavna/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/iznimke/NemoguceOdreditiProsjekStudentaException.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/iznimke/NemoguceOdreditiProsjekStudentaException.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/iznimke/PostojiViseNajmadjihStudenataException.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/iznimke/PostojiViseNajmadjihStudenataException.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/iznimke/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/iznimke/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/iznimke/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/iznimke/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/sortiranje/StudentSorter.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/sortiranje/StudentSorter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/sortiranje/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/sortiranje/package-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hr/java/vjezbe/sortiranje/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/hr/java/vjezbe/sortiranje/package-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-10.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-10.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-11.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-11.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-12.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-12.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-13.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-13.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-14.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-14.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-15.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-15.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-16.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-16.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-17.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-17.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-18.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-18.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-19.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-19.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-3.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-4.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-4.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-5.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-5.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-6.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-6.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-7.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-7.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-8.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-8.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-files/index-9.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-files/index-9.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/overview-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/overview-summary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/overview-tree.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serialized-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/serialized-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/Diplomski.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/Diplomski.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/Dvorana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/Dvorana.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/ObrazovnaUstanova.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/ObrazovnaUstanova.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/VeleucilisteJave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/VeleucilisteJave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/Visokoskolska.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/Visokoskolska.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/pogreske.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/pogreske.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/Predmet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/Predmet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/glavna/Glavna.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/glavna/Glavna.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/iznimke/NemoguceOdreditiProsjekStudentaException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/iznimke/NemoguceOdreditiProsjekStudentaException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/iznimke/PostojiViseNajmadjihStudenataException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/iznimke/PostojiViseNajmadjihStudenataException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/sortiranje/StudentSorter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/sortiranje/StudentSorter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,15 +117,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Final commit" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/hr/java/vjezbe/glavna/Glavna.java</url>
-          <line>350</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="hr.java.vjezbe.entitet.Predmet" memberName="brojEctsBodova" />
