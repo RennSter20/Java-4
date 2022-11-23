@@ -43,9 +43,8 @@ public interface Visokoskolska {
         Integer suma = 0;
         Integer broj = 0;
 
-        Ocjena o = Ocjena.NEDOVOLJAN;
             for(int i = 0;i<ispiti.size();i++){
-                if(ispiti.get(i).getOcjena() > o.ocjena){
+                if(ispiti.get(i).getOcjena() > Ocjena.NEDOVOLJAN.getInteger()){
                     suma+= ispiti.get(i).getOcjena();
                     broj++;
                 }else{

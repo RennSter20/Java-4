@@ -35,7 +35,7 @@ public class VeleucilisteJave extends ObrazovnaUstanova implements Visokoskolska
     public BigDecimal izracunajKonacnuOcjenuStudijaZaStudenta(List<Ispit> ispiti, Integer pismeni, Integer obrana, Student student) {
 
 
-            BigDecimal prosjekOcjenaNaIspitima = null;
+            BigDecimal prosjekOcjenaNaIspitima;
 
             try{
                 prosjekOcjenaNaIspitima = odrediProsjekOcjenaNaIspitima(filtrirajIspitePoStudentu(ispiti, student));

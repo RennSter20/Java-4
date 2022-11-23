@@ -68,10 +68,9 @@ public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski 
         List<Integer> brojIzvrsnihOcjena = new ArrayList<>();
         for(int i = 0;i< getIspiti().size();i++) brojIzvrsnihOcjena.add(i, 0);
 
-        Ocjena o = Ocjena.IZVRSTAN;
         for(Ispit ispit : getIspiti()){
             for(int i = 0;i< getStudenti().size();i++){
-                if(ispit.getStudent() == getStudenti().get(i) && ispit.getOcjena() == o.ocjena){
+                if(ispit.getStudent() == getStudenti().get(i) && ispit.getOcjena() == Ocjena.IZVRSTAN.getInteger()){
                     Integer tempIzvrsnaOcjena = brojIzvrsnihOcjena.get(i) + 1;
                     brojIzvrsnihOcjena.add(i, tempIzvrsnaOcjena);
                 }
@@ -80,7 +79,7 @@ public class FakultetRacunarstva extends ObrazovnaUstanova implements Diplomski 
 
         int lastIndex = 0;
         for(int i = brojIzvrsnihOcjena.size()-1;i>-1;i--){
-            if(brojIzvrsnihOcjena.get(i) == o.ocjena){
+            if(brojIzvrsnihOcjena.get(i) == Ocjena.IZVRSTAN.getInteger()){
                 lastIndex = i;
             }
         }
