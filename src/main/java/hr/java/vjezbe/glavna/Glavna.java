@@ -343,7 +343,7 @@ public class Glavna {
             brojStudenata = unos.nextInt();
             unos.nextLine();
 
-            if(brojStudenata < BROJ_PROFESORA){
+            if(brojStudenata < BROJ_STUDENTA){
                 System.out.println("Unesen je broj manji od dozvoljenog!");
                 nastaviPetlju = true;
             }else{
@@ -355,7 +355,7 @@ public class Glavna {
             brojPredmeta = unos.nextInt();
             unos.nextLine();
 
-            if(brojPredmeta < BROJ_PROFESORA){
+            if(brojPredmeta < BROJ_PREDMETA){
                 System.out.println("Unesen je broj manji od dozvoljenog!");
                 nastaviPetlju = true;
             }else{
@@ -367,7 +367,7 @@ public class Glavna {
             brojIspita = unos.nextInt();
             unos.nextLine();
 
-            if(brojIspita < BROJ_PROFESORA){
+            if(brojIspita < BROJ_ISPITA){
                 System.out.println("Unesen je broj manji od dozvoljenog!");
                 nastaviPetlju = true;
             }else{

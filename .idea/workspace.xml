@@ -6,11 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="d8b0317b-e151-4878-8f62-0e3b240dce42" name="Changes" comment="Final">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/FakultetRacunarstva.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/FakultetRacunarstva.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/VeleucilisteJave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/VeleucilisteJave.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/Visokoskolska.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/entitet/Visokoskolska.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/glavna/Glavna.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hr/java/vjezbe/glavna/Glavna.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/glavna/Glavna.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/Dvorana.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/Dvorana.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/FakultetRacunarstva.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/FakultetRacunarstva.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/Ispit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/Ispit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/ObrazovnaUstanova.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/ObrazovnaUstanova.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/Osoba.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/Osoba.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/Profesor$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/Profesor$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/Profesor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/Profesor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/VeleucilisteJave.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/VeleucilisteJave.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/Visokoskolska.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/entitet/Visokoskolska.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/iznimke/NemoguceOdreditiProsjekStudentaException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/iznimke/NemoguceOdreditiProsjekStudentaException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/iznimke/PostojiViseNajmadjihStudenataException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hr/java/vjezbe/iznimke/PostojiViseNajmadjihStudenataException.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +105,13 @@
       <option name="presentableId" value="LOCAL−00003" />
       <updated>1667030429883</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL−00004" summary="Final">
+      <created>1669220555719</created>
+      <option name="number" value="LOCAL−00004" />
+      <option name="presentableId" value="LOCAL−00004" />
+      <updated>1669220555720</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,9 +127,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Final commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final commit" />
+    <MESSAGE value="Final" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hr/java/vjezbe/glavna/Glavna.java</url>
+          <line>564</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hr/java/vjezbe/glavna/Glavna.java</url>
+          <line>516</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="hr.java.vjezbe.entitet.Predmet" memberName="brojEctsBodova" />
